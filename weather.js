@@ -45,18 +45,11 @@ let handleWeatherResponse = function(response) {
 
 
   // **** your code starts here - don't modify anything else. you will be sad.
-  $(".current").empty()
-      for (let i=0; i<1 ; i++) {
-            let weatherforecast = response.daily.data[i];
-            console.log(weatherforecast.summary);
-            let html = '<div class="col">'
-            html = html + '<h3>' + icon(weatherforecast.icon) + '</h3>';
-            html = html + '<h4>'+ Math.round(weatherforecast.apparentTemperatureMax) + '|' + Math.round(weatherforecast.apparentTemperatureMin) + '</h4>';
-            html = html + '<h5>' + weatherforecast.summary + '<h5>';
-            html = html + '</div>';
-            $(".current").append(html);
-            $(".current").fadeIn();
-            }
+    $("#current-conditions-icon").html(icon(response.currently.icon));
+    $("#current-conditions-text").html(response.currently.text);
+
+    $(".current").fadeIn();
+            
 
   $(".forecast").empty()
     for (let j=1; j<7 ; j++) {
